@@ -19,6 +19,13 @@ define(['facebook', 'backbone'], function(){
 			this._api('/me', {}, callback);
 		},
 
+		obj: function(id, callback) {
+			this._api('/'+id, {}, callback);
+		},
+		picture: function(id, callback) {
+			this._api('/'+id+'/picture', {}, callback);
+		},
+
 		login: function() {
 			FB.login(function(response) {
 				_this.trigger('logged', response);
@@ -41,7 +48,8 @@ define(['facebook', 'backbone'], function(){
 
 		likes: function(id, callback) {
 			this._api('/' + id + '/likes', {
-				summary: true
+				summary: true,
+				limit: 1000
 			}, callback);
 		},
 

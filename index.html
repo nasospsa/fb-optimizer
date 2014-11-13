@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>FB Optimizer</title>
+	<link rel=stylesheet href="scripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel=stylesheet href="scripts/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div>
-		<ul id="pictures">
-		</ul>
+	<div class="container-fluid">
+		<div id="pictures" class="row"></div>
 	</div>
 	<script id="picture-template" type="text/template">
-		<img src="<%= source %>" alt="">
-		<p>Likes: <span class="likes">--</span></p>
+		<div class="thumbnail">
+			<img class="img-responsive" src="<%= images[1].source %>" alt="<%= id %>">
+			<div class="caption">
+				<p class="text-center">Likes: <span class="likes">--</span></p>
+				<p class="text-center">Missing: <a class="missing" data-toggle="modal" data-target="#<%= id %>">--</a></p>
+				<div class="modal fade" id="<%= id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel"><%= id %></h4>
+							</div>
+							<div class="modal-body">
+								<ul class="missing-list media-list"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script id="profile-template" type="text/template">
+	<a target="_blank" class="media-left media-middle profile-link" href="#!">
+		<img class="profile-image" src="" alt="<%= id %>">
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading"><a target="_blank" class="profile-link" href="#!"><%= name %></a></h4>
+	</div>
 	</script>
 	<script data-main="scripts/app/main" src="scripts/bower_components/requirejs/require.js"></script>
 </body>
