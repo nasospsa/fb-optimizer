@@ -17,9 +17,15 @@ require.config({
 })
 require(['bootstrap', 'fb', 'models/albums', 'models/pictures', 'views/pictures'], function(__bs__, fb, AlbumCollection, PictureCollection, PicturesView){
 	var pictureCollection,
-		picturesView;
+		picturesView,
+		$start = $('#start');
+
+	$start.click(function() {
+		fb.login();
+	});
 
 	fb.once('logged', function(data) {
+		$start.hide();
 		fb.albums(function (albums) {
 			var albumCollection = new AlbumCollection(albums.data),
 				profileAlbum = albumCollection.getProfileAlbum();
@@ -33,4 +39,6 @@ require(['bootstrap', 'fb', 'models/albums', 'models/pictures', 'views/pictures'
 			});
 		})
 	});
+
+	fb.init();
 });

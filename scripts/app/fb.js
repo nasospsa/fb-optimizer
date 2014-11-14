@@ -1,6 +1,6 @@
 define(['facebook', 'backbone'], function(){
 	var FBModel = Backbone.Model.extend({
-		initialize: function() {
+		init: function() {
 			var _this = this;
 			FB.init({
 				appId: '1561887870713742',
@@ -10,7 +10,7 @@ define(['facebook', 'backbone'], function(){
 					_this.trigger('logged', response);
 				}
 				else {
-					_this.login();
+					// _this.login();
 				}
 			});
 		},
