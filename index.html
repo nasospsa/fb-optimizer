@@ -17,14 +17,18 @@
 		<div class="thumbnail">
 			<img class="img-responsive" src="<%= images[1].source %>" alt="<%= id %>">
 			<div class="caption">
-				<p class="text-center">Likes: <span class="likes">--</span></p>
+				<p class="text-center">Likes: <span class="likes badge">--</span></p>
 				<p class="text-center">Missing: <a class="missing" data-toggle="modal" data-target="#<%= id %>">--</a></p>
 				<div class="modal fade" id="<%= id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="myModalLabel"><%= id %></h4>
+								<div class="modal-title">
+								<a href="<%= link %>">
+									<img class="img-responsive" src="<%= images[1].source %>" alt="<%= id %>">
+								</a>
+								</div>
 							</div>
 							<div class="modal-body">
 								<ul class="missing-list media-list"></ul>
