@@ -8,9 +8,9 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "scripts/bower_components",
+    "scripts/test",
+    "scripts/tests"
   ],
   "dependencies": {
     "backbone": "~1.1.2",

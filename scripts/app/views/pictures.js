@@ -2,7 +2,7 @@ define(['models/profiles', 'views/profile', 'backbone'], function(ProfileCollect
 	var PictureView = Backbone.View.extend({
 		template: _.template($('#picture-template').html()),
 		tagName: 'div',
-		className: 'col-sm-6 col-md-3',
+		className: 'media',
 		events: {
 
 		},

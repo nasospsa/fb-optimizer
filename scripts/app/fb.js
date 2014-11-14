@@ -58,6 +58,7 @@ define(['facebook', 'backbone'], function(){
 				if (response && !response.error) {
 					callback(response);
 				} else {
+					console.info(path, params);
 					console.error(response);
 				}
 			});
