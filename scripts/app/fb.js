@@ -15,6 +15,10 @@ define(['facebook', 'backbone'], function(){
 			});
 		},
 
+		statuses: function(id, callback) {
+			this._api('/' + id + '/posts', {}, callback);
+		},
+
 		me: function(callback) {
 			this._api('/me', {}, callback);
 		},
@@ -27,11 +31,12 @@ define(['facebook', 'backbone'], function(){
 		},
 
 		login: function() {
+			var _this = this;
 			FB.login(function(response) {
 				_this.trigger('logged', response);
 				console.log('logged', response);
 			}, {
-				scope: 'user_photos',
+				scope: 'user_photos,read_stream',
 				return_scopes: true
 			});
 		},
